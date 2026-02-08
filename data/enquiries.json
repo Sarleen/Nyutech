@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Gaganpreet Singh",
+    "email": "gagan@gmail.com",
+    "phone": "9876543210",
+    "message": "Query",
+    "createdAt": "2026-02-02T13:43:20.461Z"
+  },
+  {
+    "name": "Gaganpreet Singh",
+    "email": "gagan@gmail.com",
+    "phone": "9876543210",
+    "message": "XYZ",
+    "createdAt": "2026-02-02T13:45:04.483Z"
+  },
+  {
+    "name": "Gaganpreet Singh",
+    "email": "gagan@gmail.com",
+    "phone": "9876543210",
+    "message": "ABC",
+    "createdAt": "2026-02-02T13:49:06.434Z"
+  }
+]
