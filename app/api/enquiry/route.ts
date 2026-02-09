@@ -10,8 +10,8 @@ export async function POST(req: NextRequest) {
 
     // Send email
     const email = await resend.emails.send({
-      from: process.env.EMAIL_FROM || `hello@nyutech.ca`,
-      to: [process.env.EMAIL_TO || "nyutech@hotmail.com"],
+      from: process.env.EMAIL_FROM || `nyutech@hotmail.com`,
+      to: [process.env.EMAIL_TO || "rajatdeep51@gmail.com"],
       subject: "Media Audit / Enquiry Request from NYUtech Website",
       text: `
         Name: ${body.name}
