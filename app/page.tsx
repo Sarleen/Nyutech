@@ -50,7 +50,7 @@ export default function NyutechHome() {
           </p>
         </div>
 
-        <div className="flex flex-col items-end gap-2 text-right">
+        <div className="flex-col items-end gap-2 text-right">
           <a
             href="mailto:nyutech@hotmail.com"
             className="text-sm font-bold hover:text-blue-300 transition-colors"
