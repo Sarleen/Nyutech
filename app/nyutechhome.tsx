@@ -114,43 +114,103 @@ export default function NyutechHome() {
           </div>
         </section>
 
-        {/* PRODUCT LIST – black‑luxury card grid */}
-        <section className="py-20 px-6 md:px-10 max-w-6xl mx-auto">
-          <div className="text-center mb-14">
-            <h3 className="text-3xl md:text-4xl font-bold text-slate-100 tracking-tight">
-              Our Products
-            </h3>
-            <p className="text-slate-400 text-lg mt-3 max-w-2xl mx-auto">
-              High‑brightness commercial displays and modular LED walls trusted by premium retail and experiential brands.
-            </p>
-          </div>
+        {/* PRODUCT TABS – clickable with images + specs + pricing */}
+<section className="py-20 px-6 md:px-10 max-w-6xl mx-auto">
+  <div className="text-center mb-14">
+    <h3 className="text-3xl md:text-4xl font-bold text-slate-100 tracking-tight">
+      Our Products
+    </h3>
+    <p className="text-slate-400 text-lg mt-3 max-w-2xl mx-auto">
+      High‑brightness commercial displays and modular LED walls trusted by premium retail and experiential brands.
+    </p>
+  </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {products.map((product, index) => (
-              <div
-                key={index}
-                className="bg-slate-900/70 backdrop-blur-sm border border-white/10 rounded-2xl p-6
-                           hover:shadow-xl hover:shadow-blue-500/20 transform hover:-translate-y-1
-                           transition-all duration-300"
-              >
-                <h4 className="text-xl font-extrabold mb-4 uppercase text-blue-400">
-                  {product.category}
-                </h4>
+  {/* TAB BUTTONS */}
+  <div className="flex flex-col md:flex-row gap-2 md:gap-4 justify-center mb-12 max-w-2xl mx-auto">
+    {products.map((product, index) => (
+      <button
+        key={index}
+        onClick={() => setActiveTab(index)}
+        className={`px-6 py-3 rounded-xl font-bold uppercase text-sm tracking-wider transition-all duration-200
+                   ${activeTab === index
+                     ? 'bg-gradient-to-r from-blue-600 to-blue-500 text-white shadow-lg shadow-blue-500/30'
+                     : 'bg-slate-900/50 text-slate-300 hover:bg-slate-800 border border-white/10 hover:shadow-lg'}`}
+      >
+        {product.category}
+      </button>
+    ))}
+  </div>
 
-                <ul className="space-y-2 text-slate-200">
-                  {product.items.map((item, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-3 border-l-4 border-blue-500/50 pl-4 py-0.5"
-                    >
-                      <span className="text-sm leading-tight">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+  {/* TAB CONTENT */}
+  <div className="space-y-8">
+    {products[activeTab].items.map((item, itemIndex) => (
+      <div
+        key={itemIndex}
+        className="group bg-slate-900/70 backdrop-blur-sm border border-white/10 rounded-3xl p-8
+                   hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300"
+      >
+        {/* Product Image */}
+        <div className="w-full h-64 md:h-72 rounded-2xl overflow-hidden mb-6 group-hover:scale-105 transition-transform duration-300">
+          <img
+            src={getProductImage(activeTab, itemIndex)} // You'll replace this
+            alt={item}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Product Title + Price */}
+        <div className="flex justify-between items-start mb-4">
+          <h4 className="text-2xl font-extrabold uppercase text-blue-400 mb-2">
+            {item}
+          </h4>
+          <div className="text-right">
+            <div className="text-2xl font-bold text-green-400 tracking-tight">
+              From $350
+            </div>
+            <div className="text-xs text-slate-400 uppercase tracking-wider">per unit</div>
           </div>
-        </section>
+        </div>
+
+        {/* Specs */}
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+          <div>
+            <h5 className="text-sm font-bold text-blue-300 uppercase mb-2">Key Specs</h5>
+            <ul className="space-y-1 text-sm text-slate-300">
+              {getProductSpecs(activeTab, itemIndex).specs.map((spec, i) => (
+                <li key={i} className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-blue-400 rounded-full"></span>
+                  {spec}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h5 className="text-sm font-bold text-blue-300 uppercase mb-2">Perfect For</h5>
+            <ul className="space-y-1 text-sm text-slate-300">
+              {getProductSpecs(activeTab, itemIndex).useCases.map((useCase, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-green-400 rounded-full mt-1"></span>
+                  <span>{useCase}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <button
+          onClick={() => {
+            setShowEnquiry(true);
+            setSubmitted(false);
+          }}
+          className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white py-3 rounded-xl font-bold uppercase text-sm tracking-wider shadow-lg transform hover:scale-105 transition-all duration-200"
+        >
+          Get Quote for This Product
+        </button>
+      </div>
+    ))}
+  </div>
+</section>
 
         {/* WHY DIGITAL STANDEE – consultative black luxury */}
         <section className="bg-gradient-to-r from-slate-950/90 to-slate-900/80 text-slate-100 py-20 px-6 md:px-10">
