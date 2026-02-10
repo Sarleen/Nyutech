@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 export default function NyutechHome() {
   const [showEnquiry, setShowEnquiry] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
   const products = [
     {
