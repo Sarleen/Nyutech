@@ -13,8 +13,8 @@ export default function NyutechHome() {
         'Store Front Hanging Screen',
         'Digital Signage (Commercial Screens)',
         'Stretched Display',
-        'Floor‑Standing Video Wall',
-        'Custom Digital Window Displays',
+        'Digital Menu Boards',
+        'LCD Wall',
       ],
     },
     {
@@ -22,8 +22,6 @@ export default function NyutechHome() {
       items: [
         'High Brightness Customized LED Displays',
         'Indoor Fine‑Pitch LED Panels',
-        'Outdoor High‑Reliability Screens',
-        'Curved and Corner‑Edge LED Walls',
       ],
     },
     {
