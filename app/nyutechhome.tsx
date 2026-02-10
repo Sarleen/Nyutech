@@ -59,7 +59,7 @@ export default function NyutechHome() {
               NYU<span className="text-blue-400">tech</span>
             </h1>
             <p className="text-xs tracking-[0.3em] text-slate-400 uppercase mt-0.5">
-              Premium AV & Digital Media
+              Premium Commercial Screens & Digital Media
             </p>
           </div>
 
